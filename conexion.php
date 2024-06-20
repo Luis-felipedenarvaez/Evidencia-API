@@ -1,14 +1,13 @@
 <?php
-define('DB_SERVER','localhost');
-define('DB_USER','root');
-define('DB_PASS' ,'');
-define('DB_NAME', 'loginsystem');
-$con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+$servername = "localhost";//Define el nombre del servidor de la BD
+$username = "root";//Define el nombre de usuario que utilizara para conectarse a la BD
+$password = "";//Define la contraseña del usuario de la BD
+$dbname = "loginsystem";//Especifica el nombre de la BD  a la que se va a hacer la conexion
+
+$conn = new mysqli($servername, $username, $password, $dbname);//Define los parametros para la conexion con la BD
 
 // Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
+if ($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
  }
-
 ?>
